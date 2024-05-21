@@ -1,0 +1,1 @@
+export * as prisma from 'npm:prisma';

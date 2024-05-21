@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppLoggerService } from './services/logger/app-logger.service.ts';
+import { AppLoggerService } from '@redstinkcreature/lib-utilities';
 
 @Controller()
 export class TestController {
