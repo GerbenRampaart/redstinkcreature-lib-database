@@ -1,3 +1,3 @@
 export type DatabaseModuleOptions = {
-	connectionString?: AppConfigModuleOptions;
+	databaseUrl: string;
 };
