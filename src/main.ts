@@ -1,10 +1,10 @@
 import { AppLoggerService } from '@redstinkcreature/lib-utilities';
 import { NestFactory } from '@nestjs/core';
-import { PostgresModule } from './postgres/postgress.module.ts';
+import { DatabaseModule } from './database.module.ts';
 
 async function bootstrap() {
 	const app = await NestFactory.create(
-		PostgresModule
+		DatabaseModule
 	);
 
 	const l = app.get(AppLoggerService);

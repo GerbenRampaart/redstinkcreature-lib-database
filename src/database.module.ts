@@ -6,35 +6,29 @@ import { AppConfigModule, AppConfigService, AppLoggerModule, AppLoggerService, L
 import { TestController } from './test.controller.ts';
 import { DatabaseModuleOptions } from './database-module.options.ts';
 import { DatabaseEnvSchemaType, databaseEnvSchema } from './database.schema.ts';
+import { PostgresModule } from './postgres/postgres.module.ts';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './user.entity.ts';
 
 @Module({
-
+	imports: [
+		AppConfigModule.registerAsync<DatabaseEnvSchemaType>({
+			schema: databaseEnvSchema
+		}),
+		PostgresModule,
+		AppLoggerModule,
+	],
+	providers: [
+		AppConfigService,
+		AppLoggerService,
+		
+	],
+	controllers: [
+		TestController,
+	],
+	exports: [
+		PostgresModule
+	]
 })
 export class DatabaseModule {
-	public static async registerAsync(
-		options: DatabaseModuleOptions
-	): Promise<DynamicModule> {
-		return {
-			module: LibUtilitiesModule,
-			imports: [
-				AppConfigModule.registerAsync<DatabaseEnvSchemaType>({
-					schema: databaseEnvSchema
-				}),
-				
-				AppLoggerModule,
-			],
-			providers: [
-				AppConfigService,
-				AppLoggerService,
-				
-			],
-			exports: [
-				AppConfigService,
-				AppLoggerService,
-			],
-			controllers: [
-				TestController,
-			],
-		};
-	}
 }
