@@ -4,30 +4,29 @@ DynamicModule,
 } from '@nestjs/common';
 import { AppConfigModule, AppConfigService, AppLoggerModule, AppLoggerService, LibUtilitiesModule } from '@redstinkcreature/lib-utilities';
 import { TestController } from './test.controller.ts';
-import z from 'zod';
+import { DatabaseModuleOptions } from './database-module.options.ts';
+import { DatabaseEnvSchemaType, databaseEnvSchema } from './database.schema.ts';
 
 @Module({
-	imports: [
-		AppLoggerModule,
-	],
+
 })
 export class DatabaseModule {
-	public async registerAsync(): Promise<DynamicModule> {
+	public static async registerAsync(
+		options: DatabaseModuleOptions
+	): Promise<DynamicModule> {
 		return {
 			module: LibUtilitiesModule,
 			imports: [
-				AppConfigModule.registerAsync({
-					schema: z.object({
-						POSTGRESS_URL: z.string().optional(),
-						MONGO_URL: z.string().optional(),
-						SQLITE_URL: z.string().optional(),
-					})
+				AppConfigModule.registerAsync<DatabaseEnvSchemaType>({
+					schema: databaseEnvSchema
 				}),
+				
 				AppLoggerModule,
 			],
 			providers: [
 				AppConfigService,
 				AppLoggerService,
+				
 			],
 			exports: [
 				AppConfigService,

@@ -1,19 +1,10 @@
-import z from 'zod';
-import { AppConstantsService, AppLoggerService, LibUtilitiesModule } from '@redstinkcreature/lib-utilities';
+import { AppLoggerService } from '@redstinkcreature/lib-utilities';
 import { NestFactory } from '@nestjs/core';
+import { PostgresModule } from './postgres/postgress.module.ts';
 
 async function bootstrap() {
 	const app = await NestFactory.create(
-		LibUtilitiesModule.register({
-			config: {
-				schema: z.object({
-					TEST: z.string().default('bla'),
-					HOMMA: z.coerce.number().default(123),
-				}),
-				useDotEnvDefaults: AppConstantsService.denoEnv.isDebug,
-				useDotEnvEnvironment: AppConstantsService.denoEnv.isDebug,
-			},
-		}),
+		PostgresModule
 	);
 
 	const l = app.get(AppLoggerService);

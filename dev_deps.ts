@@ -1,1 +1,3 @@
-export * as prisma from 'npm:prisma';
+
+export * as prismaCli from 'npm:prisma';
+

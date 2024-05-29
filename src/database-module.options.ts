@@ -1,3 +1,5 @@
 export type DatabaseModuleOptions = {
-	databaseUrl: string;
+	postgressUrl?: string;
+    mongoUrl?: string;
+    sqliteUrl?: string;
 };
