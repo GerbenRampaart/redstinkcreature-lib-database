@@ -1,20 +1,24 @@
+import { LibUtilitiesModule, Module } from '@redstinkcreature/lib-utilities';
 import {
-	Module,
-} from '@nestjs/common';
-import { AppConfigModule, AppConfigService, AppConstantsService, AppLoggerModule, AppLoggerService } from '@redstinkcreature/lib-utilities';
+	AppConfigService,
+	AppConstantsService,
+} from '@redstinkcreature/lib-utilities';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { DatabaseEnvSchemaType, databaseEnvSchema } from '../database.schema.ts';
-import { User } from '../user.entity.ts';
+import {
+	DatabaseEnvSchemaType,
+} from '../database.schema.ts';
+//import { User } from '../user.entity.ts';
+import pg from 'pg';
 
 @Module({
 	imports: [
-		AppLoggerModule,
+		//LibUtilitiesModule,
 		TypeOrmModule.forRootAsync(
 			{
-
 				useFactory: async (
-					l: AppLoggerService,
-					c: AppConfigService<DatabaseEnvSchemaType>): Promise<TypeOrmModuleOptions> => {
+					//l: AppLoggerService,
+					c: AppConfigService<DatabaseEnvSchemaType>,
+				): Promise<TypeOrmModuleOptions> => {
 					const p = await AppConstantsService.product();
 
 					const opts: TypeOrmModuleOptions = {
@@ -23,33 +27,23 @@ import { User } from '../user.entity.ts';
 						type: 'postgres',
 						url: c.get('POSTGRES_URL'),
 						synchronize: false,
-
+						driver: pg,
+						manualInitialization: true,
 						//logger: {
 						//}
-
-					}
+					};
 
 					return opts;
 				},
-				imports: [
-					AppLoggerModule,
-					AppConfigModule.registerAsync<DatabaseEnvSchemaType>({
-						schema: databaseEnvSchema
-					}),
-				],
 				inject: [
-					AppLoggerService,
-					AppConfigService
+					//AppLoggerService,
+					AppConfigService,
 				],
-				
-
-			}),
-			TypeOrmModule.forFeature([User], 'POSTGRES')
+			},
+		),
+		//TypeOrmModule.forFeature([User], 'POSTGRES')
 	],
-	exports: [
-
-	]
+	exports: [],
 })
 export class PostgresModule {
-
 }
