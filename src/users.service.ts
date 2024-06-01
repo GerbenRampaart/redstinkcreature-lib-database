@@ -1,23 +1,28 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from '@redstinkcreature/lib-utilities';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity.ts';
+import { PostgresConnectionName } from './postgres/postgres.module.ts';
 
 @Injectable()
 export class UsersService {
 	constructor(
-		@InjectRepository(User) private usersRepository: Repository<User>,
+		@InjectRepository(User, PostgresConnectionName) private ur: Repository<User>,
 	) {}
 
 	findAll(): Promise<User[]> {
-		return this.usersRepository.find();
+		return this.ur.find();
 	}
 
-	findOne(id: number): Promise<User | null> {
-		return this.usersRepository.findOneBy({ id });
+	findOne(id: string): Promise<User | null> {
+		return this.ur.findOneBy({ id });
 	}
 
 	async remove(id: number): Promise<void> {
-		await this.usersRepository.delete(id);
+		await this.ur.delete(id);
+	}
+
+	async insert(user: User): Promise<void> {
+		await this.ur.insert(user);
 	}
 }

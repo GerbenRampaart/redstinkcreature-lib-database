@@ -13,17 +13,24 @@
       "npm:@nestjs/core@10": "npm:@nestjs/core@10.3.8_@nestjs+common@10.3.8__reflect-metadata@0.2.2__rxjs@7.8.1_@nestjs+platform-express@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+core@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+platform-express@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__rxjs@7.8.1_reflect-metadata@0.2.2_rxjs@7.8.1",
       "npm:@nestjs/platform-express@10": "npm:@nestjs/platform-express@10.3.8_@nestjs+common@10.3.8__reflect-metadata@0.2.2__rxjs@7.8.1_@nestjs+core@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+platform-express@10.3.8__reflect-metadata@0.2.2__rxjs@7.8.1_rxjs@7.8.1",
       "npm:@nestjs/testing@10": "npm:@nestjs/testing@10.3.8_@nestjs+common@10.3.8__reflect-metadata@0.2.2__rxjs@7.8.1_@nestjs+core@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+platform-express@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+core@10.3.8____@nestjs+common@10.3.8_____reflect-metadata@0.2.2_____rxjs@7.8.1____@nestjs+platform-express@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___rxjs@7.8.1__reflect-metadata@0.2.2__rxjs@7.8.1_@nestjs+platform-express@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+core@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+platform-express@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__rxjs@7.8.1_rxjs@7.8.1_@nestjs+platform-express@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+core@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+platform-express@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__rxjs@7.8.1__@nestjs+core@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+platform-express@10.3.8____@nestjs+common@10.3.8_____reflect-metadata@0.2.2_____rxjs@7.8.1____@nestjs+core@10.3.8_____@nestjs+common@10.3.8______reflect-metadata@0.2.2______rxjs@7.8.1_____@nestjs+platform-express@10.3.8_____reflect-metadata@0.2.2_____rxjs@7.8.1____rxjs@7.8.1___reflect-metadata@0.2.2___rxjs@7.8.1___@nestjs+platform-express@10.3.8_@nestjs+core@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+platform-express@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+core@10.3.8____@nestjs+common@10.3.8_____reflect-metadata@0.2.2_____rxjs@7.8.1____@nestjs+platform-express@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___rxjs@7.8.1__reflect-metadata@0.2.2__rxjs@7.8.1__@nestjs+platform-express@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+core@10.3.8____@nestjs+common@10.3.8_____reflect-metadata@0.2.2_____rxjs@7.8.1____@nestjs+platform-express@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___rxjs@7.8.1___@nestjs+core@10.3.8",
-      "npm:@nestjs/typeorm@10": "npm:@nestjs/typeorm@10.0.2_@nestjs+common@10.3.8__reflect-metadata@0.2.2__rxjs@7.8.1_@nestjs+core@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+platform-express@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+core@10.3.8___rxjs@7.8.1__reflect-metadata@0.2.2__rxjs@7.8.1_reflect-metadata@0.2.2_rxjs@7.8.1_typeorm@0.3.20_@nestjs+platform-express@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+core@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+platform-express@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__rxjs@7.8.1",
+      "npm:@nestjs/typeorm@10": "npm:@nestjs/typeorm@10.0.2_@nestjs+common@10.3.8__reflect-metadata@0.2.2__rxjs@7.8.1_@nestjs+core@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+platform-express@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+core@10.3.8____@nestjs+common@10.3.8_____reflect-metadata@0.2.2_____rxjs@7.8.1____@nestjs+platform-express@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___rxjs@7.8.1__reflect-metadata@0.2.2__rxjs@7.8.1_reflect-metadata@0.2.2_rxjs@7.8.1_typeorm@0.3.20__pg@8.11.5_@nestjs+platform-express@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+core@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+platform-express@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__rxjs@7.8.1_pg@8.11.5",
       "npm:@types/node": "npm:@types/node@18.16.19",
       "npm:axios@1": "npm:axios@1.7.2",
+      "npm:axios@^1.7.2": "npm:axios@1.7.2",
       "npm:nestjs-pino@4": "npm:nestjs-pino@4.1.0_@nestjs+common@10.3.8__reflect-metadata@0.2.2__rxjs@7.8.1_pino-http@10.1.0_rxjs@7.8.1",
+      "npm:nestjs-pino@^4.1.0": "npm:nestjs-pino@4.1.0_@nestjs+common@10.3.8__reflect-metadata@0.2.2__rxjs@7.8.1_pino-http@10.1.0_rxjs@7.8.1",
       "npm:pg@8": "npm:pg@8.11.5",
       "npm:pino-http@10": "npm:pino-http@10.1.0",
+      "npm:pino-http@^10.1.0": "npm:pino-http@10.1.0",
       "npm:pino-pretty@11": "npm:pino-pretty@11.1.0",
+      "npm:pino-pretty@^11.1.0": "npm:pino-pretty@11.1.0",
       "npm:pino@9": "npm:pino@9.1.0",
+      "npm:pino@^9.1.0": "npm:pino@9.1.0",
       "npm:rxjs@7": "npm:rxjs@7.8.1",
-      "npm:typeorm": "npm:typeorm@0.3.20",
-      "npm:zod@3": "npm:zod@3.23.8"
+      "npm:rxjs@^7.8.1": "npm:rxjs@7.8.1",
+      "npm:typeorm": "npm:typeorm@0.3.20_pg@8.11.5",
+      "npm:zod@3": "npm:zod@3.23.8",
+      "npm:zod@^3.23.8": "npm:zod@3.23.8"
     },
     "jsr": {
       "@redstinkcreature/lib-utilities@0.4.3": {
@@ -202,14 +209,14 @@
           "tslib": "tslib@2.6.2"
         }
       },
-      "@nestjs/typeorm@10.0.2_@nestjs+common@10.3.8__reflect-metadata@0.2.2__rxjs@7.8.1_@nestjs+core@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+platform-express@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+core@10.3.8___rxjs@7.8.1__reflect-metadata@0.2.2__rxjs@7.8.1_reflect-metadata@0.2.2_rxjs@7.8.1_typeorm@0.3.20_@nestjs+platform-express@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+core@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+platform-express@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__rxjs@7.8.1": {
+      "@nestjs/typeorm@10.0.2_@nestjs+common@10.3.8__reflect-metadata@0.2.2__rxjs@7.8.1_@nestjs+core@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+platform-express@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+core@10.3.8____@nestjs+common@10.3.8_____reflect-metadata@0.2.2_____rxjs@7.8.1____@nestjs+platform-express@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___rxjs@7.8.1__reflect-metadata@0.2.2__rxjs@7.8.1_reflect-metadata@0.2.2_rxjs@7.8.1_typeorm@0.3.20__pg@8.11.5_@nestjs+platform-express@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+core@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+platform-express@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__rxjs@7.8.1_pg@8.11.5": {
         "integrity": "sha512-H738bJyydK4SQkRCTeh1aFBxoO1E9xdL/HaLGThwrqN95os5mEyAtK7BLADOS+vldP4jDZ2VQPLj4epWwRqCeQ==",
         "dependencies": {
           "@nestjs/common": "@nestjs/common@10.3.8_reflect-metadata@0.2.2_rxjs@7.8.1",
           "@nestjs/core": "@nestjs/core@10.3.8_@nestjs+common@10.3.8__reflect-metadata@0.2.2__rxjs@7.8.1_@nestjs+platform-express@10.3.8__@nestjs+common@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__@nestjs+core@10.3.8___@nestjs+common@10.3.8____reflect-metadata@0.2.2____rxjs@7.8.1___@nestjs+platform-express@10.3.8___reflect-metadata@0.2.2___rxjs@7.8.1__rxjs@7.8.1_reflect-metadata@0.2.2_rxjs@7.8.1",
           "reflect-metadata": "reflect-metadata@0.2.2",
           "rxjs": "rxjs@7.8.1",
-          "typeorm": "typeorm@0.3.20",
+          "typeorm": "typeorm@0.3.20_pg@8.11.5",
           "uuid": "uuid@9.0.1"
         }
       },
@@ -476,8 +483,8 @@
           "ms": "ms@2.0.0"
         }
       },
-      "debug@4.3.4": {
-        "integrity": "sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==",
+      "debug@4.3.5": {
+        "integrity": "sha512-pt0bNEmneDIvdL1Xsd9oDQ/wrQRkXDT4AUWlNZNPKvW5x/jyO9VFXkJUP07vQ2upmw5PlaITaPKc31jK13V+jg==",
         "dependencies": {
           "ms": "ms@2.1.2"
         }
@@ -1350,7 +1357,7 @@
         "integrity": "sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==",
         "dependencies": {}
       },
-      "typeorm@0.3.20": {
+      "typeorm@0.3.20_pg@8.11.5": {
         "integrity": "sha512-sJ0T08dV5eoZroaq9uPKBoNcGslHBR4E4y+EBHs//SiGbblGe7IeduP/IH4ddCcj0qp3PHwDwGnuvqEAnKlq/Q==",
         "dependencies": {
           "@sqltools/formatter": "@sqltools/formatter@1.2.5",
@@ -1359,10 +1366,11 @@
           "chalk": "chalk@4.1.2",
           "cli-highlight": "cli-highlight@2.1.11",
           "dayjs": "dayjs@1.11.11",
-          "debug": "debug@4.3.4",
+          "debug": "debug@4.3.5",
           "dotenv": "dotenv@16.4.5",
           "glob": "glob@10.4.1",
           "mkdirp": "mkdirp@2.1.6",
+          "pg": "pg@8.11.5",
           "reflect-metadata": "reflect-metadata@0.2.2",
           "sha.js": "sha.js@2.4.11",
           "tslib": "tslib@2.6.2",

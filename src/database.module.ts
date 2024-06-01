@@ -7,6 +7,7 @@ import {
 import { TestController } from './test.controller.ts';
 import { databaseEnvSchema } from './database.schema.ts';
 import { PostgresModule } from './postgres/postgres.module.ts';
+import { UsersService } from './users.service.ts';
 
 @Module({
 	imports: [
@@ -17,17 +18,15 @@ import { PostgresModule } from './postgres/postgres.module.ts';
 				useDotEnvDefaults: true,
 				useDotEnvEnvironment: true,
 			},
-		}),
+		})
 	],
 	providers: [
 		AppConfigService,
 		AppLoggerService,
+		UsersService
 	],
 	controllers: [
 		TestController,
-	],
-	exports: [
-		//PostgresModule
 	],
 })
 export class DatabaseModule {
