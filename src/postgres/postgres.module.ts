@@ -3,12 +3,11 @@ import {
 	AppConfigService,
 	AppConstantsService,
 } from '@redstinkcreature/lib-utilities';
-import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import {
 	DatabaseEnvSchemaType,
 } from '../database.schema.ts';
 import { DataSource } from 'typeorm';
-import { InjectDataSource } from '@nestjs/typeorm';
+import { TypeOrmModule, TypeOrmModuleOptions, InjectDataSource } from '@redstinkcreature/lib-utilities';
 //import { User } from '../user.entity.ts';
 import pg from 'pg';
 import { User } from '../user.entity.ts';
@@ -32,7 +31,7 @@ export const PostgresConnectionName = 'POSTGRES';
 						//name: PostgresConnectionName,
 						type: 'postgres',
 						url: c.get('POSTGRES_URL'),
-						synchronize: AppConstantsService.denoEnv.isDebug,
+						synchronize: AppConstantsService.env.isDebug,
 						driver: pg,
 						manualInitialization: true,
 						entities: [

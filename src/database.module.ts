@@ -1,4 +1,4 @@
-import { Module } from '@redstinkcreature/lib-utilities';
+import { AppConstantsService, Module } from '@redstinkcreature/lib-utilities';
 import {
 	AppConfigService,
 	AppLoggerService,
@@ -8,17 +8,19 @@ import { TestController } from './test.controller.ts';
 import { databaseEnvSchema } from './database.schema.ts';
 import { PostgresModule } from './postgres/postgres.module.ts';
 import { UsersService } from './users.service.ts';
+import { SqlJsModule } from './sqljs/sqljs.module.ts';
 
 @Module({
 	imports: [
-		PostgresModule,
 		LibUtilitiesModule.register({
 			config: {
 				schema: databaseEnvSchema,
-				useDotEnvDefaults: true,
-				useDotEnvEnvironment: true,
+				useDotEnvDefaults: AppConstantsService.env.isDebug,
+				useDotEnvEnvironment: AppConstantsService.env.isDebug,
 			},
-		})
+		}),
+		PostgresModule,
+		SqlJsModule
 	],
 	providers: [
 		AppConfigService,

@@ -2,8 +2,6 @@ import { Controller, Get } from '@redstinkcreature/lib-utilities';
 import { AppLoggerService } from '@redstinkcreature/lib-utilities';
 import { User } from './user.entity.ts';
 import { UsersService } from './users.service.ts';
-import { InjectDataSource } from '@nestjs/typeorm';
-import { DataSource } from 'typeorm';
 
 @Controller()
 export class TestController {
@@ -16,7 +14,7 @@ export class TestController {
 	) {
 	}
 
-	@Get()
+	@Get('test')
 	async test() {
 
 		

@@ -1,13 +1,13 @@
-import { Injectable } from '@redstinkcreature/lib-utilities';
-import { InjectRepository } from '@nestjs/typeorm';
+import { Injectable, InjectRepository } from '@redstinkcreature/lib-utilities';
 import { Repository } from 'typeorm';
 import { User } from './user.entity.ts';
-import { PostgresConnectionName } from './postgres/postgres.module.ts';
+//import { ConnectionName } from './postgres/postgres.module.ts';
+import { ConnectionName } from './sqljs/sqljs.module.ts';
 
 @Injectable()
 export class UsersService {
 	constructor(
-		@InjectRepository(User, PostgresConnectionName) private ur: Repository<User>,
+		@InjectRepository(User, ConnectionName) private ur: Repository<User>,
 	) {}
 
 	findAll(): Promise<User[]> {
