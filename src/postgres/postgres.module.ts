@@ -1,25 +1,21 @@
-import { AppLoggerService, Module, OnModuleDestroy, OnModuleInit } from '@redstinkcreature/lib-utilities';
-import {
-	AppConfigService,
-	AppConstantsService,
-} from '@redstinkcreature/lib-utilities';
+import { Module, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
+import { TypeOrmModule, TypeOrmModuleOptions, InjectDataSource } from '@nestjs/typeorm';
+import { AppConfigService, AppConstantsService, AppLoggerService } from '@redstinkcreature/lib-utilities';
 import {
 	DatabaseEnvSchemaType,
 } from '../database.schema.ts';
 import { DataSource } from 'typeorm';
-import { TypeOrmModule, TypeOrmModuleOptions, InjectDataSource } from '@redstinkcreature/lib-utilities';
-//import { User } from '../user.entity.ts';
 import pg from 'pg';
 import { User } from '../user.entity.ts';
 
-export const PostgresConnectionName = 'POSTGRES';
+export const ConnectionName = 'POSTGRES';
 
 @Module({
 	imports: [
 		//LibUtilitiesModule,
 		TypeOrmModule.forRootAsync(
 			{
-				name: PostgresConnectionName,
+				name: ConnectionName,
 				useFactory: async (
 					//l: AppLoggerService,
 					c: AppConfigService<DatabaseEnvSchemaType>,
@@ -53,7 +49,7 @@ export const PostgresConnectionName = 'POSTGRES';
 			},
 		),
 		// This makes sure the repositories are created.
-		TypeOrmModule.forFeature([User], PostgresConnectionName)
+		TypeOrmModule.forFeature([User], ConnectionName)
 	],
 	exports: [
 		TypeOrmModule
@@ -62,20 +58,27 @@ export const PostgresConnectionName = 'POSTGRES';
 export class PostgresModule implements OnModuleInit, OnModuleDestroy {
 	constructor(
 		private readonly l: AppLoggerService,
-		@InjectDataSource(PostgresConnectionName) private readonly ds: DataSource,
+		@InjectDataSource(ConnectionName) private readonly ds: DataSource,
 	) {
 	}
 
 	async onModuleInit() {
 		if (!this.ds.isInitialized) {
-			this.l.warn(`Initializing DB connection ${PostgresConnectionName}`);
-			await this.ds.initialize();
+			this.l.warn(`Initializing DB connection ${ConnectionName}`);
+			
+			try {
+				await this.ds.initialize();
+			} catch (err) {
+				this.l.error(`COULD NOT CONNECT TO ${ConnectionName}`);
+				this.l.error(err);
+			}
+			
 		}
 	}
 
 	async onModuleDestroy() {
 		if (this.ds.isInitialized) {
-			this.l.warn(`Destroying DB connection ${PostgresConnectionName}`);
+			this.l.warn(`Destroying DB connection ${ConnectionName}`);
 			await this.ds.destroy();
 		}
 	}

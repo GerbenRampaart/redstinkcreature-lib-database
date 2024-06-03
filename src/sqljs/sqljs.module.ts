@@ -1,14 +1,11 @@
-import { AppLoggerService, Module, OnModuleDestroy, OnModuleInit } from '@redstinkcreature/lib-utilities';
-import {
-	AppConstantsService,
-} from '@redstinkcreature/lib-utilities';
-import { TypeOrmModule, TypeOrmModuleOptions } from '@redstinkcreature/lib-utilities';
+import { Module, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
+import { TypeOrmModule, TypeOrmModuleOptions, InjectDataSource } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
-import { InjectDataSource } from '@redstinkcreature/lib-utilities';
 import { User } from '../user.entity.ts';
 import { join } from 'std/path';
 import sqljs from 'sql.js';
 import { exists } from 'std/fs';
+import { AppLoggerService } from '@redstinkcreature/lib-utilities';
 
 export const ConnectionName = 'SQLJS';
 
@@ -37,8 +34,8 @@ export const ConnectionName = 'SQLJS';
 
 					const opts: TypeOrmModuleOptions = {
 						type: 'sqljs',
-						//database: path,
-						synchronize: AppConstantsService.env.isDebug,
+						// Since every SqlJs database is a throw-away database, synchronize always.
+						synchronize: true,
 						manualInitialization: true,
 						entities: [
 							User
@@ -80,7 +77,12 @@ export class SqlJsModule implements OnModuleInit, OnModuleDestroy {
 	async onModuleInit() {
 		if (!this.ds.isInitialized) {
 			this.l.warn(`Initializing DB connection ${ConnectionName}`);
-			await this.ds.initialize();
+			try {
+				await this.ds.initialize();
+			} catch (err) {
+				this.l.error(`COULD NOT CONNECT TO ${ConnectionName}`);
+				this.l.error(err);
+			}
 		}
 	}
 

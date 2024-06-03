@@ -1,4 +1,5 @@
-import { AppConstantsService, Module } from '@redstinkcreature/lib-utilities';
+import { AppConstantsService } from '@redstinkcreature/lib-utilities';
+import { Module } from '@nestjs/common';
 import {
 	AppConfigService,
 	AppLoggerService,

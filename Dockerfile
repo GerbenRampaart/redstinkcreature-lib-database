@@ -7,7 +7,7 @@ COPY ./src ./src
 COPY ./deno.json .
 COPY ./deno.lock .
 
-RUN cd ./src && deno cache main.ts --node-modules-dir=true
+RUN deno cache ./src/main.ts --node-modules-dir=true
 
 ENV DENO_ENV=production
 CMD [ "deno", "run", "--allow-all", "--cached-only", "./src/main.ts" ]

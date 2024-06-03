@@ -4,6 +4,7 @@
 	"exports": "./mod.ts",
 	"nodeModulesDir": true,
 	"tasks": {
+		"cache": "deno cache -r ./src/main.ts --lock-write --node-modules-dir=true",
 		"dev": "DENO_FUTURE=1 DENO_ENV=development deno run --watch --allow-write --allow-net --allow-read --allow-env --allow-sys ./src/main.ts",
 		"dev:prd": "DENO_ENV=production deno run --watch --allow-net --allow-read --allow-env --allow-sys ./src/main.ts",
 		"test": "DENO_ENV=test deno test --allow-all ./src/**/*.test.ts",
@@ -15,7 +16,12 @@
 		"emitDecoratorMetadata": true
 	},
 	"imports": {
-		"@redstinkcreature/lib-utilities": "jsr:@redstinkcreature/lib-utilities@^0.4.6",
+		"@redstinkcreature/lib-utilities": "jsr:@redstinkcreature/lib-utilities@^0.4.8",
+		"@nestjs/common": "npm:@nestjs/common@10.3.8",
+		"@nestjs/core": "npm:@nestjs/core@10.3.8",
+		"@nestjs/platform-express": "npm:@nestjs/platform-express@10.3.8",
+		"@nestjs/typeorm": "npm:@nestjs/typeorm@10.0.2",
+		"express": "npm:express@4",
 		"dotenv": "jsr:@std/dotenv@0.224.0",
 		"pg": "npm:pg@8",
 		"sql.js": "npm:sql.js@1",

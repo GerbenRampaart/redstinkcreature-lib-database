@@ -1,7 +1,7 @@
-import { Controller, Get } from '@redstinkcreature/lib-utilities';
 import { AppLoggerService } from '@redstinkcreature/lib-utilities';
 import { User } from './user.entity.ts';
 import { UsersService } from './users.service.ts';
+import { Get, Controller } from '@nestjs/common';
 
 @Controller()
 export class TestController {
