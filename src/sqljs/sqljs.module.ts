@@ -1,11 +1,16 @@
 import { Module, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
-import { TypeOrmModule, TypeOrmModuleOptions, InjectDataSource } from '@nestjs/typeorm';
+import {
+	InjectDataSource,
+	TypeOrmModule,
+	TypeOrmModuleOptions,
+} from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { User } from '../user.entity.ts';
 import { join } from 'std/path';
 import sqljs from 'sql.js';
 import { exists } from 'std/fs';
 import { AppLoggerService } from '@redstinkcreature/lib-utilities';
+import { LogProxyService } from '../util/log-proxy.service.ts';
 
 export const ConnectionName = 'SQLJS';
 
@@ -16,13 +21,14 @@ export const ConnectionName = 'SQLJS';
 				name: ConnectionName,
 				useFactory: async (
 					l: AppLoggerService,
+					p: LogProxyService,
 				): Promise<TypeOrmModuleOptions> => {
 					const dir = join(Deno.cwd(), 'data');
-					const dataDirExists = await exists(dir, { 
+					const dataDirExists = await exists(dir, {
 						isDirectory: true,
-						isReadable: true
+						isReadable: true,
 					});
-					
+
 					if (!dataDirExists) {
 						await Deno.mkdir(dir);
 						l.debug(`Created ${dir}`);
@@ -38,34 +44,35 @@ export const ConnectionName = 'SQLJS';
 						synchronize: true,
 						manualInitialization: true,
 						entities: [
-							User
+							User,
 						],
 						autoSave: true,
 						autoSaveCallback: async (data: Uint8Array) => {
 							l.debug(`${data.length} bytes to ${path}`);
 							await Deno.writeFile(path, data);
 						},
-						driver: sqljs
-						//logger: {
-						//}
-						
-						
-						
+						driver: sqljs,
+						logger: p,
 					};
 
 					return opts;
 				},
 				inject: [
-					AppLoggerService
+					AppLoggerService,
+					LogProxyService,
 				],
+				extraProviders: [
+					LogProxyService,
+				],
+				imports: [],
 			},
 		),
 		// This makes sure the repositories are created.
-		TypeOrmModule.forFeature([User], ConnectionName)
+		TypeOrmModule.forFeature([User], ConnectionName),
 	],
 	exports: [
-		TypeOrmModule
-	]
+		TypeOrmModule,
+	],
 })
 export class SqlJsModule implements OnModuleInit, OnModuleDestroy {
 	constructor(

@@ -9,6 +9,7 @@ COPY ./deno.lock .
 
 RUN deno cache ./src/main.ts --node-modules-dir=true
 
+ENV LOG_LEVEL=debug
 ENV DENO_ENV=production
 CMD [ "deno", "run", "--allow-all", "--cached-only", "./src/main.ts" ]
 

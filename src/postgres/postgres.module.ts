@@ -1,12 +1,19 @@
-import { Module, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
-import { TypeOrmModule, TypeOrmModuleOptions, InjectDataSource } from '@nestjs/typeorm';
-import { AppConfigService, AppConstantsService, AppLoggerService } from '@redstinkcreature/lib-utilities';
+import { Module, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import {
-	DatabaseEnvSchemaType,
-} from '../database.schema.ts';
+	InjectDataSource,
+	TypeOrmModule,
+	TypeOrmModuleOptions,
+} from '@nestjs/typeorm';
+import {
+	AppConfigService,
+	AppConstantsService,
+	AppLoggerService,
+} from '@redstinkcreature/lib-utilities';
+import { DatabaseEnvSchemaType } from '../database.schema.ts';
 import { DataSource } from 'typeorm';
 import pg from 'pg';
 import { User } from '../user.entity.ts';
+import { LogProxyService } from '../util/log-proxy.service.ts';
 
 export const ConnectionName = 'POSTGRES';
 
@@ -31,29 +38,30 @@ export const ConnectionName = 'POSTGRES';
 						driver: pg,
 						manualInitialization: true,
 						entities: [
-							User
-						]
+							User,
+						],
 						//logger: {
 						//}
-						
-						
-						
 					};
 
 					return opts;
 				},
 				inject: [
-					//AppLoggerService,
 					AppConfigService,
+					LogProxyService,
 				],
+				extraProviders: [
+					LogProxyService,
+				],
+				imports: [],
 			},
 		),
 		// This makes sure the repositories are created.
-		TypeOrmModule.forFeature([User], ConnectionName)
+		TypeOrmModule.forFeature([User], ConnectionName),
 	],
 	exports: [
-		TypeOrmModule
-	]
+		TypeOrmModule,
+	],
 })
 export class PostgresModule implements OnModuleInit, OnModuleDestroy {
 	constructor(
@@ -65,14 +73,13 @@ export class PostgresModule implements OnModuleInit, OnModuleDestroy {
 	async onModuleInit() {
 		if (!this.ds.isInitialized) {
 			this.l.warn(`Initializing DB connection ${ConnectionName}`);
-			
+
 			try {
 				await this.ds.initialize();
 			} catch (err) {
 				this.l.error(`COULD NOT CONNECT TO ${ConnectionName}`);
 				this.l.error(err);
 			}
-			
 		}
 	}
 

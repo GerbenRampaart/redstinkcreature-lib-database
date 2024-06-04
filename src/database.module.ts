@@ -21,17 +21,16 @@ import { SqlJsModule } from './sqljs/sqljs.module.ts';
 			},
 		}),
 		PostgresModule,
-		SqlJsModule
+		SqlJsModule,
 	],
 	providers: [
 		AppConfigService,
 		AppLoggerService,
-		UsersService
+		UsersService,
 	],
 	controllers: [
 		TestController,
 	],
 })
 export class DatabaseModule {
-
 }

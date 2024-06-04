@@ -1,6 +1,6 @@
 {
 	"name": "@redstinkcreature/lib-database",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"exports": "./mod.ts",
 	"nodeModulesDir": true,
 	"tasks": {
@@ -9,17 +9,18 @@
 		"dev:prd": "DENO_ENV=production deno run --watch --allow-net --allow-read --allow-env --allow-sys ./src/main.ts",
 		"test": "DENO_ENV=test deno test --allow-all ./src/**/*.test.ts",
 		"repl": "DENO_ENV=repl deno run --watch --allow-all ./src/util/repl.ts",
-		"build": "deno run --allow-all ./src/build.ts"
+		"build": "deno run --allow-all ./src/build.ts",
+		"ncu": "ncu -p deno -u"
 	},
 	"compilerOptions": {
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true
 	},
 	"imports": {
-		"@redstinkcreature/lib-utilities": "jsr:@redstinkcreature/lib-utilities@^0.4.8",
-		"@nestjs/common": "npm:@nestjs/common@10.3.8",
-		"@nestjs/core": "npm:@nestjs/core@10.3.8",
-		"@nestjs/platform-express": "npm:@nestjs/platform-express@10.3.8",
+		"@redstinkcreature/lib-utilities": "jsr:@redstinkcreature/lib-utilities@^0.4.9",
+		"@nestjs/common": "npm:@nestjs/common@10.3.9",
+		"@nestjs/core": "npm:@nestjs/core@10.3.9",
+		"@nestjs/platform-express": "npm:@nestjs/platform-express@10.3.9",
 		"@nestjs/typeorm": "npm:@nestjs/typeorm@10.0.2",
 		"express": "npm:express@4",
 		"dotenv": "jsr:@std/dotenv@0.224.0",
